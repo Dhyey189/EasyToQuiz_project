@@ -1,0 +1,63 @@
+{% load static %}
+<html>
+<head>
+	<title>User Online Registration</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<style type="text/css">
+	::placeholder{
+
+		/*background-color: yellow;*/
+		color: darkgrey;
+		opacity: 10;
+	}
+</style>
+<body>
+	<form action = "/userlogin/userregistration" method = "POST" >{% csrf_token %}
+		<div class="box">
+
+			<!-- Username : -->
+			
+			<div class="textbox">
+				<i class="fas fa-user"></i>
+				<input type = "text" name = "username"  placeholder="Set UserName" required="required"/><br>
+			</div>
+			<br>
+
+            <div class="textbox">
+				<i class="fas fa-envelope"></i>
+				<input type = "email" name = "email"  placeholder="Email" required="required"/><br>
+			</div>
+			<br>
+
+			<!-- Password :  -->
+			<div class="textbox">
+				<i class="fas fa-lock"></i>
+				<input type = "password" name = "pass" id="password" placeholder="Set password" minlength = "6" required="required" onchange="check_pass();"><br>
+			</div>
+			<br>
+
+			<!-- Confirm Password :  -->
+			<div class="textbox">
+				<i class="fas fa-lock"></i>
+				<input type = "password" name = "cpass" id="cpassword" placeholder="Confirm password" minlength = "6" required="required" onchange="check_pass();">
+			</div>
+			<br>
+			<input type = "submit" class="btn" name= "submit" id="submit" value = "Register">
+			<a href="/userlogin/login" class="btn">back to login</button></a>
+
+		</div>
+	</form>
+	{% for message in messages %}
+		<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+			<strong>{{message}}</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	{%endfor%}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -3,9 +3,10 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: url(13.jpg) no-repeat;
+  background: url(2.jpg) no-repeat;
   background-size: cover;
 }
+
 
 
 .box{
@@ -19,7 +20,7 @@ body{
 .box h1{
   float: left;
   font-size: 40px;
-  border-bottom: 6px solid #4caf50;
+  border-bottom: 6px solid #6b9658;
   margin-bottom: 50px;
   padding: 13px 0;
 }
@@ -29,7 +30,7 @@ body{
   font-size: 20px;
   padding: 8px 0;
   margin: 8px 0;
-  border-bottom: 1px solid #4caf50;
+  border-bottom: 1px solid #6b9658;
 }
 .textbox i{
   width: 26px;
@@ -47,13 +48,48 @@ body{
   margin: 0 10px;
 }
 .btn{
-  width: 100%;
+  width: 45%;
   background: none;
-  background-color: #4caf50;
-  border: 2px solid #4caf50;
-  color: white;
+  background-color: transparent;
+  border: 1px solid #6b9658;
+  color: #6b9658;
   padding: 5px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: bolder;
   cursor: pointer;
-  margin: 12px 0;
+  margin: 12px 3px;
+}
+.btn:hover{
+  background-color: #6b96587a;
+  color: #fff;
+}
+
+.errorbox{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-size: 20px;
+  
+  padding: 8px 0;
+  margin: 8px 0;
+  
+}
+.errorbox h2{
+  border: none;
+  outline: none;
+  background: none;
+  color: rgb(223, 93, 93);
+  font-size: 18px;
+  width: 100%;
+  float: left;
+  margin: 0 0;
+}
+.alert{
+  text-align: left;
+  font-size: 12px;
+}
+.alert strong{
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
