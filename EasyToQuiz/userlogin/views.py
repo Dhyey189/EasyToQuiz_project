@@ -5,7 +5,7 @@ from django.views import generic
 from django.template.context_processors import csrf
 from .models import user_signup
 from django.contrib.auth.models import User, auth
-import mysql.connector
+# import mysql.connector
 from django.contrib import messages
 # Create your views here.
 
