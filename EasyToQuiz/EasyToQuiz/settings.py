@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'EasyToQuiz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'User_SignUp',
+        'NAME': 'user_signUp',
         'USER': 'root',
         'PASSWORD': '',
         'HOST':'localhost',

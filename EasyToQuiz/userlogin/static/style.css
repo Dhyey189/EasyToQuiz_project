@@ -1,36 +1,62 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+:root{
+  --bg: #fff;
+  --fg: #000;
+  --color: #6b9658;
+}
 body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: url(2.jpg) no-repeat;
+   
   background-size: cover;
+  background-attachment: fixed;
+  /* background-color: #000511; */
+}
+.mynav h4{
+  font-size: larger;
+  color: #ffffff;
+  margin:0 !important;
+  /* color: 000511; */
 }
 
-
-
+.mynav p{
+  font-size:large;
+  color: #ffffff !important;
+  margin:0 !important;
+  /* color: 000511; */
+}
 .box{
+  background-color: #e7e7e700;
   width: 280px;
+  /* margin: 10px; */
+  padding: 20px;
+  /* border-color: #000 !important; */
+  border: 2px solid #000511;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  color: white;
+  color: #000511;
+  box-shadow: 5px 10px 5px 5px #444;
+  z-index: +2;
+  border-radius: 15px;
 }
 .box h1{
   float: left;
-  font-size: 40px;
-  border-bottom: 6px solid #6b9658;
-  margin-bottom: 50px;
-  padding: 13px 0;
+  font-size: 30px;
+  border-bottom: 6px solid var(--color);
+  margin-bottom: 20px;
+  padding: 5px 0;
 }
+/* var(--color) */
 .textbox{
   width: 100%;
   overflow: hidden;
   font-size: 20px;
   padding: 8px 0;
   margin: 8px 0;
-  border-bottom: 1px solid #6b9658;
+  border-bottom: 1px solid var(--color);
 }
 .textbox i{
   width: 26px;
@@ -41,18 +67,19 @@ body{
   border: none;
   outline: none;
   background: none;
-  color: white;
+  color: rgb(7, 7, 7);
   font-size: 18px;
   width: 80%;
   float: left;
   margin: 0 10px;
 }
+
 .btn{
   width: 45%;
   background: none;
   background-color: transparent;
-  border: 1px solid #6b9658;
-  color: #6b9658;
+  border: 1px solid var(--color);
+  color: var(--color);
   padding: 5px;
   font-size: 15px;
   font-weight: bolder;
@@ -60,7 +87,7 @@ body{
   margin: 12px 3px;
 }
 .btn:hover{
-  background-color: #6b96587a;
+  background-color: var(--color);
   color: #fff;
 }
 
@@ -92,4 +119,36 @@ body{
 .alert strong{
   padding-top: 2px;
   padding-bottom: 2px;
+}
+/* .quiz-home-sec{
+  display: inline;
+} */
+.quiz-create-sec{
+  display: inline-block;
+  /* margin: 10px; */
+  /* float: left; */
+  font-size: 20px;
+  font-family: sans-serif;
+  /* border: 0px solid #000; */
+  padding: 10px 20px;
+  text-align: justify;
+}
+.quiz-create-sec .btn{
+  width: 25%;
+}
+.home{
+  margin: 10px;
+  margin-top: 50px;
+  border: 0px solid #000;
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.quizdetails{
+  align-content: center;
 }

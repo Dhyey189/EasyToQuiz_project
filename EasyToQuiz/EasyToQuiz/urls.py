@@ -5,5 +5,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userlogin/',include('userlogin.urls')),
+    path('EasyToQuiz/',include('userlogin.urls'),name='EasyToQuiz'),
 ]

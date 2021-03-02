@@ -5,3 +5,6 @@ class user_signup(models.Model):
     username = models.CharField(max_length=20)
     emailid = models.CharField(max_length=40)
     password = models.CharField(max_length=20)
+
+# class quiz_data(models.Model):
+#     quizname = models.CharField(max_length=40)
