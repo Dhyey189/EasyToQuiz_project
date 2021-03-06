@@ -1,57 +1,88 @@
+
 {% load static %}
+{% with i=0%}
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8" >
-  <title>Create New Quiz</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-<body style="background-color:white !important;">{% csrf_token %}
+	<head>
+		<meta charset="utf-8">
+		<title>Create New Quiz</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css">
+		<link rel="stylesheet" href="{% static 'style.css' %}">
+	</head>
 
- <nav class="navbar navbar-expand-sm navbar-dark mynav"  style="background-color:#000511 !important; padding : 12px 10px" >
 
-  	<h4>New Quiz</h4>
-  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span> 
-  	</button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"  >
-      {% if user.is_authenticated %}
-    	<ul class="navbar-nav ml-auto" >
-      		<li class="nav-item">
-          
-        		<p class="nav-link"><i class="fas fa-user"></i>&nbsp;{{user.username}}</p><span class="sr-only">(current)</span>
-      		</li>  
-      		<li class="nav-item">
-        		<a class="nav-link" href="/EasyToQuiz/signout"><p ><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</p></a>
-      		</li>
-      	
-    	</ul>
-      {% else%}
-      <ul class="navbar-nav ml-auto" >
-      		<li class="nav-item">
-        		<a class="nav-link" href="/EasyToQuiz/login"><p style="color:white;margin:0 !important;">Login</p></a><span class="sr-only">(current)</span>
-      		</li>  
-      		<li class="nav-item">
-        		<a class="nav-link" href="/EasyToQuiz/userregistration"><p style="color:white;margin:0 !important;">Sign Up</p></a>
-      		</li>
-      	
-    	</ul>
-      {% endif%}
+	<body style="background-color:#ede7f6 !important;">{% csrf_token %}
 
-    	
-  	</div>
-</nav>
-<div class="quizdetails" align="center">
-    
-    Quiz Title:
-        <input type="text" name="Quiztitle" placeholder="Title">
-      <br>
-    
-    Quiz description:
+		<nav class="navbar navbar-expand-sm navbar-dark mynav"
+			style="background-color:#000511 !important; padding : 12px 10px;">
 
-    
-</div> 
-</body>
+			<h4>New Quiz</h4>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				{% if user.is_authenticated %}
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+
+						<p class="nav-link"><i class="fas fa-user"></i>&nbsp;{{user.username}}</p><span
+							class="sr-only">(current)</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/EasyToQuiz/signout">
+							<p><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</p>
+						</a>
+					</li>
+
+				</ul>
+				{% else%}
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/EasyToQuiz/login">
+							<p style="color:white;margin:0 !important;">Login</p>
+						</a><span class="sr-only">(current)</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/EasyToQuiz/userregistration">
+							<p style="color:white;margin:0 !important;">Sign Up</p>
+						</a>
+					</li>
+
+				</ul>
+				{% endif%}
+
+
+			</div>
+		</nav>
+		<section class="mysection">
+			<div class="container">
+				<div class="section">
+					<div class="item">
+						<h2>Title:</h2>
+						<input type="text" name="title" align="left" />
+					</div>
+					<div class="item">
+						<h2>Description:</h2>
+						<textarea name="description" rows="1" align="left"></textarea>
+					</div>
+
+					{% with ''|center:i as range %}
+					{% for _ in range %}
+					Hello
+					{% endfor %}
+					{%endwith%}
+
+					
+				</div>
+			</div>
+		</section>
+		
+			<a class="btnicon-2" onclick="AddQuestion()"><i class="fas fa-plus-circle" title="Add Question"></i></a>
+		
+		<script type="text/javascript" src="../static/custon.js"></script>
+	</body>
 </html>
+{%endwith%}
