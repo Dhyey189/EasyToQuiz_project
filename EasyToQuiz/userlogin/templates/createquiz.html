@@ -1,12 +1,16 @@
 
 {% load static %}
+{% with i=0%}
 <html lang="en" dir="ltr">
 
 	<head>
+<<<<<<< HEAD
 		{% csrf_token %}
 		<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {% comment %} <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script> {% endcomment %}
+=======
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 		<meta charset="utf-8">
 		<title>Create New Quiz</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,7 +20,11 @@
 	</head>
 
 
+<<<<<<< HEAD
 	<body style="background-color:#ede7f6 !important;">
+=======
+	<body style="background-color:#ede7f6 !important;">{% csrf_token %}
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 
 		<nav class="navbar navbar-expand-sm navbar-dark mynav"
 			style="background-color:#000511 !important; padding : 12px 10px;">
@@ -60,12 +68,15 @@
 
 			</div>
 		</nav>
+<<<<<<< HEAD
 		<form action="savingquiz" method="POST">{% csrf_token %}
 		<input type="text" value={{user.id}} class="display_none" name="u_id">
 		<input type="text" id="xxx" class="display_none" name="x">
 		<input type="text" id="array2" class="display_none" name="array2">
 		<input type="text" id="array" class="display_none" name="array">
 		<div id="MAIN">
+=======
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 		<section class="mysection">
 			<div class="container">
 				<div class="section">
@@ -75,6 +86,7 @@
 					</div>
 					<div class="item">
 						<h2>Description:</h2>
+<<<<<<< HEAD
 						<textarea name="description" rows="1" align="left" value=""></textarea>
 					</div>
 				</div>
@@ -93,3 +105,25 @@
 		
 	</body>
 </html>
+=======
+						<textarea name="description" rows="1" align="left"></textarea>
+					</div>
+
+					{% with ''|center:i as range %}
+					{% for _ in range %}
+					Hello
+					{% endfor %}
+					{%endwith%}
+
+					
+				</div>
+			</div>
+		</section>
+		
+			<a class="btnicon-2" onclick="AddQuestion()"><i class="fas fa-plus-circle" title="Add Question"></i></a>
+		
+		<script type="text/javascript" src="../static/custon.js"></script>
+	</body>
+</html>
+{%endwith%}
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0

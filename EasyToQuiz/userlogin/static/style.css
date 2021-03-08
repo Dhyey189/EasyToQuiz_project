@@ -262,7 +262,11 @@ body{
   background-color: transparent;
   border: 0px solid var(--color);
   color: var(--color);
+<<<<<<< HEAD
   padding: 0;
+=======
+  padding: 5px;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
   font-weight: bolder;
   cursor: pointer;
   margin: 10px;
@@ -271,8 +275,13 @@ body{
   font-size: 20px !important;
 }
 .btnicon:hover, .btnicon-3:hover{
+<<<<<<< HEAD
   background-color: none;
   color:#fff;
+=======
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 }
 .questionsection .option-item{
   position: relative;
@@ -286,7 +295,11 @@ body{
 
 .option-item .addoption{
   position: absolute;
+<<<<<<< HEAD
   top: 40px;
+=======
+  top: 35px;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
   left: 1%;
 } 
 .item .deleteoption{
@@ -300,7 +313,11 @@ body{
 .btnicon-2{
   width: fit-content !important;
   position: fixed;
+<<<<<<< HEAD
   bottom: 1%;
+=======
+  top: 83%;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
   left: 1%;
   color: var(--color);
   background-color: transparent;
@@ -308,14 +325,20 @@ body{
 .btnicon-4{
   width: fit-content !important;
   position: fixed;
+<<<<<<< HEAD
   bottom: 1%;
   right:  1%;
+=======
+  top: 70%;
+  left: 1%;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
   color: var(--color);
   background-color: transparent;
 }
 
 .btnicon-2 i{
   background: none;
+<<<<<<< HEAD
   background-color: transparent;
   border: none;
   color: #000;
@@ -324,22 +347,46 @@ body{
   margin: 0;
   padding: 5px;
   font-size: 60px;
+=======
+  background-color: #000;
+  border: transparent;
+  color: #ede7f6;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 35px;
+  font-size: 70px;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 }
 .btnicon-4 i{
   background: none;
   background-color: transparent;
   color: #000;
   border: transparent;
+<<<<<<< HEAD
+=======
+  font-size: 15px;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
   font-weight: bolder;
   cursor: pointer;
   margin: auto;
   border-radius: 35px;
+<<<<<<< HEAD
   font-size: 60px;
+=======
+  font-size: 70px;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 
 }
 .btnicon-2 i:hover,.btnicon-4 i:hover{
   background-color: transparent;
+<<<<<<< HEAD
   color: var(--color);
+=======
+  color: #000;
+  border: transparent;
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 }
 .option input{
   border: none;
@@ -356,6 +403,7 @@ body{
 /* .option{
   padding: 10px 0px;
   display: inherit;
+<<<<<<< HEAD
 } */
 .delete{
   position: absolute;
@@ -388,3 +436,6 @@ body{
   overflow: hidden;
   margin: 30px 0px;
 }
+=======
+} */
+>>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
