@@ -8,10 +8,20 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-   
+/*    
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   /* background-color: #000511; */
+}
+.mynav {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 90px 10px;
+  transition: 0.4s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
 }
 .mynav h4{
   font-size: larger;
@@ -78,7 +88,7 @@ body{
   width: 45%;
   background: none;
   background-color: transparent;
-  border: 1px solid var(--color);
+  border: 1px solid var(--color)  !important;
   color: var(--color);
   padding: 5px;
   font-size: 15px;
@@ -130,7 +140,8 @@ body{
   font-size: 20px;
   font-family: sans-serif;
   /* border: 0px solid #000; */
-  padding: 10px 20px;
+  padding: 10px 10px;
+  margin: auto;
   text-align: justify;
 }
 .quiz-create-sec .btn{
@@ -146,9 +157,234 @@ body{
 }
 
 .dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
     pointer-events: none;
 }
 .quizdetails{
   align-content: center;
+}
+
+.create{
+  background-color: #b7d6e7;
+  padding: 65px 20px;
+  border: 2px solid #000511;
+  position:relative;
+  overflow: scroll;
+  left: 50%;  
+  width: 60%;
+  transform: translate(-50%,-50%);
+  color: #000511;
+  z-index: +2;
+  border-radius: 15px;
+  margin-top: 100px;
+}
+
+.section{
+  text-align: left;
+  overflow: hidden;
+  margin: 30px 0px;
+}
+
+.item input,textarea{
+  border: none;
+  outline: none;
+  background: none;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  width: 98%;
+  float: left;
+  margin: auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #6b9658;
+}
+
+
+.item h2,h3{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section a{
+  width: 30%;
+}
+
+.section .item{
+  display:block;
+}
+.mysection{
+  align-self: center;
+  
+  background-color: #000511;
+  width: 80%;
+  padding: 65px 20px;
+  /* border: 10px solid #6b9658; */
+  border-left: 8px solid #2c2fff;
+  border-top: 8px solid #6b9658;
+  color: #fff;
+  z-index: +2;
+  border-radius: 15px;
+  margin: 90px auto;
+}
+.mysection2{
+  align-self: center;
+  position: relative;
+  background-color: #000511;
+  width: 80%;
+  padding: 40px 20px;
+  /* border: 2px solid #6b9658; */
+  border-left: 8px solid #2c2fff;
+  color: #ede7f6;
+  z-index: +2;
+  border-radius: 15px;
+  margin: 30px auto;
+}
+.btnicon{
+  width: fit-content !important;
+  background: none;
+  background-color: transparent;
+  border: 0px solid var(--color);
+  color: var(--color);
+  padding: 0px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 25px;
+  font-size: 30px !important;
+  z-index: 1;
+}
+.option{
+  position: inline;
+  margin-bottom: 30px;
+}
+.btnicon-3{
+  position: absolute;
+  width: fit-content !important;
+  background: none;
+  background-color: transparent;
+  border: 0px solid var(--color);
+  color: var(--color);
+  padding: 0;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 10px;
+  /* margin-bottom: 30px !important; */
+  border-radius: 25px;
+  font-size: 20px !important;
+}
+.btnicon:hover, .btnicon-3:hover{
+  background-color: none;
+  color:#fff;
+}
+.questionsection .option-item{
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.option-item input{
+  margin-bottom: 50px;
+  z-index: 1;
+}
+
+.option-item .addoption{
+  position: absolute;
+  top: 40px;
+  left: 1%;
+} 
+.item .deleteoption{
+  position: relative;
+}
+.addquestion{
+  display:none;
+}
+
+
+.btnicon-2{
+  width: fit-content !important;
+  position: fixed;
+  bottom: 1%;
+  left: 1%;
+  color: var(--color);
+  background-color: transparent;
+}
+.btnicon-4{
+  width: fit-content !important;
+  position: fixed;
+  bottom: 1%;
+  right:  1%;
+  color: var(--color);
+  background-color: transparent;
+}
+
+.btnicon-2 i{
+  background: none;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+  padding: 5px;
+  font-size: 60px;
+}
+.btnicon-4 i{
+  background: none;
+  background-color: transparent;
+  color: #000;
+  border: transparent;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 35px;
+  font-size: 60px;
+
+}
+.btnicon-2 i:hover,.btnicon-4 i:hover{
+  background-color: transparent;
+  color: var(--color);
+}
+.option input{
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  width: 85%;
+  float: left;
+  margin: 0 10px;
+  /* margin-bottom: 10px; */
+  border-bottom: 1px solid var(--color);
+}
+/* .option{
+  padding: 10px 0px;
+  display: inherit;
+} */
+.delete{
+  position: absolute;
+  bottom: 10px;
+  right :10px;
+  width: fit-content;
+}
+.f1 {
+  font-family: Cursive, Helvetica, sans-serif;
+  color:#0e3030 !important; 
+  padding : 50px 10px;
+}
+
+.quizsection{
+  align-self: center;
+  
+  background-color: #85dcb8ca;
+  width: 80%;
+  padding: 65px 20px;
+  /* border: 10px solid #6b9658; */
+  border-left: 8px solid #05386B;
+  border-top: 8px solid #05386B;
+  color: #fff;
+  z-index: +2;
+  border-radius: 15px;
+  margin: 90px auto;
+}
+.qsection{
+  text-align: left;
+  overflow: hidden;
+  margin: 30px 0px;
 }
