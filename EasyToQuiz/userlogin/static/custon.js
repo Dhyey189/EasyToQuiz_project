@@ -1,21 +1,12 @@
 var x = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 var array = new Array();
 var array2 = new Array();
 array[0] = 0;
 array2[0] = 0;
-<<<<<<< HEAD
 var max=0;
 // option_array=new Array();
 function AddQuestion()
 {
-=======
-
-function AddQuestion() {
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 	x++;
 	array[x] = 0;
 	array2[x] = 1;
@@ -31,27 +22,16 @@ function AddQuestion() {
 	Item.setAttribute("ID", "item" + x);
 	var inputID = document.createElement("INPUT");
 	inputID.setAttribute("type", "text");
-<<<<<<< HEAD
 	inputID.setAttribute("name", "QuestionTitle-"+x);
-=======
-	inputID.setAttribute("name", "QuestionTitle");
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 	inputID.setAttribute("placeholder", "Question-" + x);
 	var Item2 = document.createElement("div");
 	Item2.setAttribute("class", "item delete");
 	Item2.setAttribute("align", "center");
 	var Delete = document.createElement("a");
-<<<<<<< HEAD
 	Delete.innerHTML = "<i class=\"fas fa-trash-alt\" title=\"Delete Question\"></i>";
 	Delete.setAttribute("class", "btnicon");
 	Delete.setAttribute("name", "deletebtn");
 	Delete.setAttribute("ID", x);
-=======
-	Delete.innerHTML = "Delete";
-	Delete.setAttribute("class", "btn");
-	Delete.setAttribute("name", "deletebtn");
-	Delete.setAttribute("ID", x)
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 	Delete.setAttribute("value", "Delete");
 	Delete.setAttribute("onclick", "Delete(getAttribute(\"ID\"))");
 	var addoption = document.createElement("a");
@@ -67,7 +47,6 @@ function AddQuestion() {
 	section.append(Item2);
 	intersection.append(section);
 	mainsection.append(intersection);
-<<<<<<< HEAD
 	document.getElementById("MAIN").appendChild(mainsection);
 }
 
@@ -82,37 +61,16 @@ function Delete(y)
 
 function AddOption(y) 
 {
-=======
-	
-	document.getElementsByTagName("body")[0].appendChild(mainsection);
-	RemoveElement();
-}
-
-function Delete(y) {
-	array2[y] = 0;
-	var DeleteQus = document.getElementById(y + "mysection");
-	DeleteQus.parentNode.removeChild(DeleteQus);
-	RemoveElement();
-}
-
-function AddOption(y) {
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 	array[y]++;
 	var div = document.createElement("div");
 	div.setAttribute("class", "option");
 	div.setAttribute("Id", "div-" + y + "-" + array[y]);
 	var optionID = document.createElement("INPUT");
 	optionID.setAttribute("type", "text");
-<<<<<<< HEAD
 	optionID.setAttribute("name", "option-"+y+"-"+array[y]);
 	optionID.setAttribute("placeholder", "option " + array[y]);
 	optionID.setAttribute("ID","option-" + y + "-" + array[y]);
 	// optionID.setAttribute("value","");
-=======
-	optionID.setAttribute("name", "option");
-	optionID.setAttribute("placeholder", "option " + array[y]);
-	optionID.setAttribute("ID", y + "-" + array[y]);
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
 	var deleteoption = document.createElement("a");
 	deleteoption.innerHTML = "<i class=\"fas fa-minus-circle\" title='Delete Option-" + array[y] + "'></i>";
 	deleteoption.setAttribute("class", "btnicon-3 deleteoption");
@@ -124,7 +82,6 @@ function AddOption(y) {
 	document.getElementById("item" + y).appendChild(div);
 }
 
-<<<<<<< HEAD
 function DeleteOption(a)
 {
 	var DeleteOpt = document.getElementById("div-" + a);
@@ -144,13 +101,3 @@ window.onbeforeunload = function (event)
 {
 	return confirm("Confirm refresh");
 }
-=======
-function DeleteOption(a) {
-	var DeleteOpt = document.getElementById("div-" + a);
-	DeleteOpt.parentNode.removeChild(DeleteOpt);
-}
-
-window.onbeforeunload = function (event) {
-	return confirm("Confirm refresh");
-};
->>>>>>> 437cd0e4258e52f3b8edc0b3661909d2b2772bf0
