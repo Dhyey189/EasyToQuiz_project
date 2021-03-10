@@ -12,9 +12,9 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
 			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 			<link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css">
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 		<link rel="stylesheet" href="{% static 'style.css' %}">
 	</head>
-
 
 	<body style="background-color:#ede7f6 !important;">
 
@@ -30,7 +30,6 @@
 				{% if user.is_authenticated %}
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-
 						<p class="nav-link"><i class="fas fa-user"></i>&nbsp;{{user.username}}</p><span
 							class="sr-only">(current)</span>
 					</li>
@@ -39,7 +38,6 @@
 							<p><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</p>
 						</a>
 					</li>
-
 				</ul>
 				{% else%}
 				<ul class="navbar-nav ml-auto">
@@ -53,11 +51,8 @@
 							<p style="color:white;margin:0 !important;">Sign Up</p>
 						</a>
 					</li>
-
 				</ul>
 				{% endif%}
-
-
 			</div>
 		</nav>
 		<form action="savingquiz" method="POST">{% csrf_token %}
@@ -69,6 +64,7 @@
 		<section class="mysection">
 			<div class="container">
 				<div class="section">
+					
 					<div class="item">
 						<h2>Title:</h2>
 						<input type="text" name="title" align="left" />
@@ -88,8 +84,13 @@
 
 		</form>
 		{% endwith %}
-		<script type="text/javascript" src="../static/custon.js"></script>
+		<script type="text/javascript" src="../static/custom.js"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		
+		{% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {%endfor%}
 	</body>
 </html>

@@ -212,7 +212,6 @@ body{
 }
 .mysection{
   align-self: center;
-  
   background-color: #000511;
   width: 80%;
   padding: 65px 20px;
@@ -353,10 +352,7 @@ body{
   /* margin-bottom: 10px; */
   border-bottom: 1px solid var(--color);
 }
-/* .option{
-  padding: 10px 0px;
-  display: inherit;
-} */
+
 .delete{
   position: absolute;
   bottom: 10px;
@@ -375,7 +371,6 @@ body{
   background-color: #85dcb8ca;
   width: 80%;
   padding: 65px 20px;
-  /* border: 10px solid #6b9658; */
   border-left: 8px solid #05386B;
   border-top: 8px solid #05386B;
   color: #fff;
@@ -388,3 +383,74 @@ body{
   overflow: hidden;
   margin: 30px 0px;
 }
+
+.item-1 .option-1{
+  margin: 10px 0;
+}
+.item-1 .option-1 input{
+  width: 15px;
+  height: 15px;
+  margin: 0 10px;
+  color: darkgray;
+}
+
+.item-1 .option-1 label{
+  font-size: 18px;
+  color: #fff;
+}
+
+.quiz-item h1{
+  padding: -30px;
+  font-size: 30px;
+  text-align: center;
+}
+.quiz-item h3{
+  font-size: 20px;
+  text-align: Justify;
+  font-weight: lighter;
+}
+
+.mysection-quiz{
+  align-self: center;
+  background-color: #000511;
+  width: 80%;
+  padding: 15px 20px;
+  border-left: 8px solid #2c2fff;
+  border-top: 8px solid #6b9658;
+  color: #fff;
+  z-index: +2;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+.mysection2-quiz{
+  align-self: center;
+  position: relative;
+  background-color: #000511;
+  width: 80%;
+  padding: 15px 20px;
+  /* border: 2px solid #6b9658; */
+  border-left: 8px solid #2c2fff;
+  color: #ede7f6;
+  z-index: +2;
+  border-radius: 15px;
+  margin: 30px auto;
+}
+
+.quiz-question-title h1{
+  font-size: 23px;
+  font-weight: lighter;
+}
+
+.submit .btn{
+  width: 10%;
+}
+
+.display_none{
+  display:none;
+}
+
+/* #b3d7ff;
+#fadde0; */

@@ -2,126 +2,42 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>Give EasyToQuiz </title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<!-- <style type="text/css" >
-::placeholder{
-    
-   color: darkgrey;
-   opacity: 10;
- }
- 
+  <head>
+    <meta charset="utf-8">
+    <title>Give EasyToQuiz </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 
- {% comment %} a:visited{
-   {% comment %} color:white; {% endcomment %}
-   {% comment %} background-color: black;
- } {% endcomment %}
- {% comment %} a:active{
-   color: green;
-   background-color: black; {% endcomment %} 
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
 
- }
-</style> -->
-<body >
-    {% csrf_token %}
-		
-		<nav class="navbar navbar-expand-sm navbar-dark mynav"
-			style="background-color:#000511 !important; padding : 12px 10px">
-
-			<h4> EasyToQuiz</h4>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-				{% if user.is_authenticated %}
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-
-						<p class="nav-link"><i class="fas fa-user"></i>&nbsp;{{user.username}}</p><span
-							class="sr-only">(current)</span>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/EasyToQuiz/signout">
-							<p><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</p>
-						</a>
-					</li>
-
-				</ul>
-				{% else%}
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="/EasyToQuiz/login">
-							<p style="color:white;margin:0 !important;">Login</p>
-						</a><span class="sr-only">(current)</span>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/EasyToQuiz/userregistration">
-							<p style="color:white;margin:0 !important;">Sign Up</p>
-						</a>
-					</li>
-
-				</ul>
-				{% endif%}
-
-
-			</div>
-		</nav>
-    
-    <form action="/EasyToQuiz/login" method="POST">{% csrf_token %}
-    <div class="box">
-    <h1>Quiz Code</h1>
-      <div class="textbox">
-        <i class="fas fa-user"></i>
-        <input type="text" name="quizcode" placeholder="Quiz Code">
-        
-      </div>
-      <a href="/EasyToQuiz/quiz" class="btn">Start Quiz</button></a> 
-    </div>
-<!-- 
-      <div class="textbox">
-        <i class="fas fa-lock"></i>
-        <input type="password" name="password" placeholder="Password" id="password">
+  <body>
+    <form action="quiz" method="POST">{% csrf_token %}
+      <input type="text" class="display_none" value={{user.id}} name="user_id">
+      <div class="box">
+        <h1>Quiz Code</h1>
+        <div class="textbox">
+          <i class="fas fa-file"></i>
+          <input type="text" name="quizcode" placeholder="Quiz Code">
         </div>
-        <br>
-         <label class="checkbox">
-        <input type="checkbox"  onclick="myFunction()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show password
-        <span class="default"></span>
-        </label>     -->
-      <!-- <input type="submit" name="submit" class="btn" value="Start Quiz">
-
-     -->
-       
-    
-    
-     
-      
-      
-  
-  <!-- </form>
-  {% for message in messages %}
-      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-        <strong>{{message}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <input type="submit" value="start Quiz" class="btn">
       </div>
-	  {%endfor%}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}</script> -->
-</body>
+    </form>
+    {% if mymessage %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{mymessage}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+
 </html>

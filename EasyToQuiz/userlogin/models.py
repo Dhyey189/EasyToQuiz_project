@@ -20,6 +20,12 @@ class Question_data(models.Model):
 
 class option_data(models.Model):
     questionid = models.ForeignKey("Question_data",on_delete=models.CASCADE)
-    # quizid = models.ForeignKey(Question_data)
     option = models.CharField(max_length=500)
+    quizid = models.ForeignKey("quiz_data",on_delete=models.CASCADE)
 
+
+class response_data(models.Model):
+    questionid = models.ForeignKey("Question_data",on_delete=models.CASCADE)
+    answer = models.ForeignKey("option_data",on_delete=models.CASCADE)
+    quizid = models.ForeignKey("quiz_data",on_delete=models.CASCADE)
+    userid = models.ForeignKey(User,on_delete=models.CASCADE)

@@ -48,6 +48,7 @@ function AddQuestion()
 	intersection.append(section);
 	mainsection.append(intersection);
 	document.getElementById("MAIN").appendChild(mainsection);
+	document.getElementById("item" + x).scrollIntoView()
 }
 
 function Delete(y) 

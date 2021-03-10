@@ -15,18 +15,6 @@
    color: darkgrey;
    opacity: 10;
  }
- 
-
-
- {% comment %} a:visited{
-   {% comment %} color:white; {% endcomment %}
-   {% comment %} background-color: black;
- } {% endcomment %}
- {% comment %} a:active{
-   color: green;
-   background-color: black; {% endcomment %} 
-
- }
 </style>
 <body >
     <form action="login" method="POST">{% csrf_token %}
@@ -48,11 +36,6 @@
         </label>    
       <input type="submit" name="submit" class="btn" value="Login">
       <a href="/EasyToQuiz/userregistration" class="btn">Sign Up</button></a>
-    
-    
-     
-      
-      
   </div>
   </form>
   {% for message in messages %}
