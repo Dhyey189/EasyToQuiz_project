@@ -1,13 +1,14 @@
 var x = 0;
+var total_questions=0;
 var array = new Array();
 var array2 = new Array();
 array[0] = 0;
 array2[0] = 0;
 var max=0;
-// option_array=new Array();
 function AddQuestion()
 {
 	x++;
+	total_questions++;
 	array[x] = 0;
 	array2[x] = 1;
 	var mainsection = document.createElement("section");
@@ -54,6 +55,7 @@ function AddQuestion()
 function Delete(y) 
 {
 	array2[y] = 0;
+	total_questions--;
 	document.getElementById("array2").setAttribute("value",array2);
 	var DeleteQus = document.getElementById(y + "mysection");
 	DeleteQus.parentNode.removeChild(DeleteQus);
@@ -71,7 +73,6 @@ function AddOption(y)
 	optionID.setAttribute("name", "option-"+y+"-"+array[y]);
 	optionID.setAttribute("placeholder", "option " + array[y]);
 	optionID.setAttribute("ID","option-" + y + "-" + array[y]);
-	// optionID.setAttribute("value","");
 	var deleteoption = document.createElement("a");
 	deleteoption.innerHTML = "<i class=\"fas fa-minus-circle\" title='Delete Option-" + array[y] + "'></i>";
 	deleteoption.setAttribute("class", "btnicon-3 deleteoption");
@@ -93,12 +94,21 @@ function DeleteOption(a)
 
 function final()
 {
-	document.getElementById("xxx").setAttribute("value",x);
-	document.getElementById("array2").setAttribute("value",array2);
-	document.getElementById("array").setAttribute("value",array);
+	if(total_questions==0)
+	{
+		alert("Quiz should contain atleast 1 Question!!");
+		return false;
+	}
+	else
+	{
+		document.getElementById("xxx").setAttribute("value",x);
+		document.getElementById("array2").setAttribute("value",array2);
+		document.getElementById("array").setAttribute("value",array);
+		window.onbeforeunload = function (event) 
+		{
+			return confirm("Confirm refresh");
+		}
+	}
 }
 
-window.onbeforeunload = function (event) 
-{
-	return confirm("Confirm refresh");
-}
+

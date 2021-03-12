@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 from django.conf.urls import url
-from .views import login, userregistration,welcome,logout,createquiz,savingquiz, submit
+from .views import login, userregistration,welcome,logout,createquiz,savingquiz, submit,quiznext2,btw_submit,responses_data,responses,view_response
 urlpatterns=[
 
     url(r'^login/$', login),
@@ -16,4 +16,9 @@ urlpatterns=[
     path('quizdata', views.quizdata, name='quizdata'),
     path('quiz', views.quiz, name='quiz'),
     path('submit', views.submit, name='submit'),
+    path('quiznext2',views.quiznext2,name='quiznext2'),
+    path('btw_submit',views.btw_submit,name='btw_submit'),
+    path('responses',views.responses,name='responses'),
+    path('responses_data',views.responses_data,name='responses_data'),
+    path('view_response',views.view_response,name='view_response'),
 ]

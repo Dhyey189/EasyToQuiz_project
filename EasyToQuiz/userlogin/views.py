@@ -56,30 +56,44 @@ def signout(request):
 def createquiz(request):
     return render(request, "createquiz.html")
 
-def savingquiz(request):
+def quiznext2(request):
     if request.method == 'POST':
-        quiztitle=request.POST.get('title','')
-        quizdescription=request.POST.get('description','')
-        u_id =int(request.POST.get('u_id',''))
-        q = quiz_data(quiztitle=quiztitle , description=quizdescription ,username_id=u_id)
-        q.save()
-        array2=request.POST.get('array2','').split(",")
-        array=request.POST.get('array','').split(",")
-        for i in range(0,int(request.POST.get('x',''))):
-            if array2[i+1]=='1':
-                questiontitle=request.POST.get('QuestionTitle-'+str(i+1),'')
-                questiontype=False
-                quizid=q.id
-                Q = Question_data(qtitle=questiontitle,qtype=questiontype,quizid_id=quizid)
-                Q.save()
-                for j in range(1,int(array[i+1])+1):
-                    option = request.POST.get("option-"+str(i+1)+"-"+str(j))
-                    if option:
-                        questionid=Q.id
-                        op = option_data(option=option,questionid_id=questionid,quizid_id=quizid)
-                        op.save()
-        context = {"QuizID" : q.id }
-        return render(request, "quiznext.html",context)
+        context = {"QuizID" : request.POST.get('QuizID','')}
+        return render(request,"quiznext2.html",context)
+    else:
+         return HttpResponseRedirect('/EasyToQuiz')   
+
+def savingquiz(request):
+        if request.method == 'POST':
+            quizid=0
+        
+            print(request.POST.get('save'))    
+            quiztitle=request.POST.get('title','')
+            quizdescription=request.POST.get('description','')
+            u_id =int(request.POST.get('u_id',''))
+            q = quiz_data(quiztitle=quiztitle , description=quizdescription ,username_id=u_id)
+            q.save()
+            array2=request.POST.get('array2','').split(",")
+            array=request.POST.get('array','').split(",")
+            for i in range(0,int(request.POST.get('x',''))):
+                if array2[i+1]=='1':
+                    questiontitle=request.POST.get('QuestionTitle-'+str(i+1),'')
+                    questiontype=False
+                    quizid=q.id
+                    print(quizid)
+                    Q = Question_data(qtitle=questiontitle,qtype=questiontype,quizid_id=quizid)
+                    Q.save()
+                    for j in range(1,int(array[i+1])+1):
+                        option = request.POST.get("option-"+str(i+1)+"-"+str(j))
+                        if option:
+                            questionid=Q.id
+                            op = option_data(option=option,questionid_id=questionid,quizid_id=quizid)
+                            op.save()
+            context = {"QuizID" : quizid }
+            return render(request, "quiznext.html",context)
+
+        else:
+            return HttpResponseRedirect('/EasyToQuiz')
 
 def quizdata(request):
     return render(request, "quizdata.html")
@@ -119,3 +133,49 @@ def submit(request):
             response = response_data( answer_id=selected_option, questionid_id=qid, quizid_id=quizid, userid_id=userid)
             response.save()
         return render(request, "submitquiz.html")
+    else:
+        return HttpResponseRedirect('/EasyToQuiz')
+
+def btw_submit(request):
+    if request.method == 'POST':
+        return render(request,"submit.html")
+    else:
+         return HttpResponseRedirect('/EasyToQuiz') 
+
+def responses(request):
+    return render(request,"responses.html")
+
+def responses_data(request):
+    quizid=int(request.POST.get("quizcode",""))
+    userid=int(request.POST.get("user_id",""))
+    quiz=quiz_data.objects.raw("SELECT * from userlogin_quiz_data WHERE id=%s and username_id=%s", [quizid,userid])
+    if len(quiz)==1:
+        responses=response_data.objects.raw("SELECT * from userlogin_response_data WHERE quizid_id=%s",[quizid])
+        unique_username_list=[]
+        for response in responses:
+            user1=User.objects.raw("SELECT DISTINCT * from auth_user WHERE id=%s",[response.userid_id])
+            for x in user1:
+                if x not in unique_username_list:
+                    unique_username_list.append(x)
+        context = {"responses":responses , "username_list":unique_username_list , "quizid":quizid}
+        return render(request, "responses_data.html",context)
+    else:
+        context = {"mymessage":"Please enter valid Quiz id or this Quiz does not belong to you" }
+        return render(request, "responses.html",context)
+        
+def view_response(request):
+    username=request.POST.get("username","")
+    user1=User.objects.raw("SELECT * from auth_user WHERE username=%s",[username])
+    quizid=(request.POST.get("quizid",""))
+    quiz=quiz_data.objects.raw("SELECT * from userlogin_quiz_data WHERE id=%s", [quizid])
+    responses=response_data.objects.raw("SELECT * from userlogin_response_data WHERE quizid_id=%s and userid_id=%s",[quizid,user1[0].id])
+    question_list=[]
+    answer_list=[]
+    for response in responses:
+        ques=Question_data.objects.raw("SELECT * from userlogin_question_data WHERE id=%s",[response.questionid_id])
+        question_list.append(ques[0])
+        answer=option_data.objects.raw("SELECT * from userlogin_option_data WHERE id=%s",[response.answer_id])    
+        answer_list.append(answer[0])
+    response_list=zip(question_list,answer_list)
+    context={"response_list":response_list , "quiz":quiz[0]}
+    return render(request,"view_response.html",context)

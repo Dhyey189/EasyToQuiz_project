@@ -11,12 +11,22 @@
         <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
 <body>
-<form name="myform2" action="btw_submit" method="POST">{% csrf_token %}
-        <div class="display_none">
-        </div>
-<form>
-<script>
-        document.getElementsByTagName('form')[0].submit()
-    </script>
+<section class="mysection-response">
+				<div class="container">
+					<div class="section">
+						<div class=" item quiz-item">
+				
+							<h1>Responce have been Recorded</h1>
+							
+						</div>
+                        <div class="item quiz-item" align="center">
+                            <a href="/EasyToQuiz/" class="btn">Back to home</a>
+                        </div>
+					</div>
+				</div>
+			</section>
+
+
+
 </body>
 </html>

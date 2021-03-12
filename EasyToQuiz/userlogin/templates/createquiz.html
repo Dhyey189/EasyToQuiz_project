@@ -21,7 +21,7 @@
 		<nav class="navbar navbar-expand-sm navbar-dark mynav"
 			style="background-color:#000511 !important; padding : 12px 10px;">
 
-			<h4>New Quiz</h4>
+			<a href="/EasyToQuiz/createquiz" style="text-decoration: none;"><h4>New Quiz</h4></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
 				{% endif%}
 			</div>
 		</nav>
-		<form action="savingquiz" method="POST">{% csrf_token %}
+		<form action="savingquiz" method="POST" name="myForm" onsubmit="return final()">{% csrf_token %}
 		<input type="text" value={{user.id}} class="display_none" name="u_id">
 		<input type="text" id="xxx" class="display_none" name="x">
 		<input type="text" id="array2" class="display_none" name="array2">
@@ -67,7 +67,7 @@
 					
 					<div class="item">
 						<h2>Title:</h2>
-						<input type="text" name="title" align="left" />
+						<input type="text" name="title" align="left" required="required"/>
 					</div>
 					<div class="item">
 						<h2>Description:</h2>
@@ -79,7 +79,7 @@
 			
 		</div>	
 		{% with count=0 %}
-		<input type="submit" value="SAVE" title="Save" class="btnicon-4" onclick="final()">
+		<input type="submit" value="SAVE" title="Save" name="save" class="btnicon-4">
 			<a class="btnicon-2" onclick="AddQuestion()"  ><i class="fas fa-plus" title="Add Question"></i></a>
 
 		</form>

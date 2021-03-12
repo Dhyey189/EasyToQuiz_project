@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -48,60 +49,27 @@
 							<p style="color:white;margin:0 !important;">Sign Up</p>
 						</a>
 					</li>
-
 				</ul>
 				{% endif%}
 
 
 			</div>
 		</nav>
-		
-		<div class="home">
-			<div class='row'>
-				<div class='quiz-create-sec col-md-6'>
-					<p class="f1">Purpose:<br>
-
-						Motive for making this software is to create a Quiz by host
-						which is easy to handle and easy to maintain. And give the most
-						accurate analysis of that quiz. In short we are trying to make a user
-						friendly and lightweight web application to take exams online in a
-						pandemic situation.</p>
-					{% if user.is_authenticated %}
-					<a class="btn" href='/EasyToQuiz/createquiz'>Create New Quiz</a>
-					{% else %}
-					<a class="btn" href='/EasyToQuiz/login'>Create New Quiz</a>
-
-					{% endif %}
+        <section class="mysection-response-data">
+        
+				<div class="container">
+					<div class="section quiz-question-title">
+                        <h1>Click the name below to see Full response.</h1>
+					</div>
 				</div>
-
-				<div class='quiz-create-sec col-md-6'>
-					<p class="f1">Purpose:<br>
-
-						Motive for making this software is to create a Quiz by host
-						which is easy to handle and easy to maintain. And give the most
-						accurate analysis of that quiz. In short we are trying to make a user
-						friendly and lightweight web application to take exams online in a
-						pandemic situation.</p>
-					{% if user.is_authenticated %}
-					<a class="btn" href='/EasyToQuiz/quizdata'>Give Quiz</a>
-					{% else %}
-					<a class="btn" href='/EasyToQuiz/login'>Give Quiz</a>
-
-					{% endif %}
-				</div>
-				<div class='quiz-create-sec col-md-6'>
-					<p class="f1">Purpose:<br>
-
-						Motive for making this software is to create a Quiz by host
-						which is easy to handle and easy to maintain. And give the most
-						accurate analysis of that quiz. In short we are trying to make a user
-						friendly and lightweight web application to take exams online in a
-						pandemic situation.</p>
-					{% if user.is_authenticated %}
-					<a class="btn" href='/EasyToQuiz/responses'>Show Responses</a>
-					{% else %}
-					<a class="btn" href='/EasyToQuiz/login'>Show Responses</a>
-
-					{% endif %}
-				</div>
-			</div>
+                <form method="POST" action="view_response">{% csrf_token %}
+                <input type="hidden" value={{quizid}} name="quizid">
+                {% for username in username_list%}
+                    <div class="section quiz-question-title">
+                    <input type="submit" value={{username}} class="btn" name="username">
+                    </div>
+                {%endfor%}
+                </form>
+		</section>
+    </body>
+</html>
