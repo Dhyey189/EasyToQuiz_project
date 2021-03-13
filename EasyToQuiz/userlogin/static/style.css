@@ -8,6 +8,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #ede7f6;
 /*    
   background-size: cover;
   background-attachment: fixed; */
@@ -15,7 +16,7 @@ body{
 }
 .mynav {
   overflow: hidden;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   padding: 90px 10px;
   transition: 0.4s;
   position: fixed;
@@ -25,14 +26,14 @@ body{
 }
 .mynav h4{
   font-size: larger;
-  color: #ffffff;
+  color: #fff;
   margin:0 !important;
   /* color: 000511; */
 }
 
 .mynav p{
   font-size:large;
-  color: #ffffff !important;
+  color: #fff !important;
   margin:0 !important;
   /* color: 000511; */
 }
@@ -77,7 +78,7 @@ body{
   border: none;
   outline: none;
   background: none;
-  color: rgb(7, 7, 7);
+  color: #000;
   font-size: 18px;
   width: 80%;
   float: left;
@@ -116,7 +117,7 @@ body{
   border: none;
   outline: none;
   background: none;
-  color: rgb(223, 93, 93);
+  color: #df5d5d;
   font-size: 18px;
   width: 100%;
   float: left;
@@ -139,13 +140,16 @@ body{
   /* float: left; */
   font-size: 20px;
   font-family: sans-serif;
-  /* border: 0px solid #000; */
-  padding: 10px 10px;
-  margin: auto;
+  /* border:0px solid #000;
+  border-radius: 25px; */
+  padding: 20px 10px;
+  margin: 20px 0;
   text-align: justify;
 }
 .quiz-create-sec .btn{
-  width: 25%;
+  width: 150px;
+  /* padding : 0 5px; */
+  align-self: center;
 }
 .home{
   margin: 10px;
@@ -188,7 +192,7 @@ body{
   border: none;
   outline: none;
   background: none;
-  color: rgb(255, 255, 255);
+  color: #000511;
   font-size: 18px;
   width: 98%;
   float: left;
@@ -212,13 +216,13 @@ body{
 }
 .mysection{
   align-self: center;
-  background-color: #000511;
+  background-color: #fffc;
   width: 80%;
-  padding: 65px 20px;
+  padding: 20px 20px;
   /* border: 10px solid #6b9658; */
   border-left: 8px solid #2c2fff;
   border-top: 8px solid #6b9658;
-  color: #fff;
+  color: #000511;
   z-index: +2;
   border-radius: 15px;
   margin: 90px auto;
@@ -226,12 +230,12 @@ body{
 .mysection2{
   align-self: center;
   position: relative;
-  background-color: #000511;
+  background-color: #fffc;
   width: 80%;
   padding: 40px 20px;
   /* border: 2px solid #6b9658; */
   border-left: 8px solid #2c2fff;
-  color: #ede7f6;
+  color: #000511 !important;
   z-index: +2;
   border-radius: 15px;
   margin: 30px auto;
@@ -271,7 +275,7 @@ body{
 }
 .btnicon:hover, .btnicon-3:hover{
   background-color: none;
-  color:#fff;
+  color:#000;
 }
 .questionsection .option-item{
   position: relative;
@@ -305,7 +309,7 @@ body{
   background-color: transparent;
 }
 .btnicon-4{
-  width: fit-content !important;
+  width: 100px !important;
   position: fixed;
   bottom: 1%;
   right:  1%;
@@ -344,7 +348,7 @@ body{
   border: none;
   outline: none;
   background: none;
-  color: #fff;
+  color: #000511;
   font-size: 18px;
   width: 85%;
   float: left;
@@ -361,10 +365,14 @@ body{
 }
 .f1 {
   font-family: Cursive, Helvetica, sans-serif;
-  color:#0e3030 !important; 
-  padding : 50px 10px;
+  color:#000511 !important; 
+  padding : 50px 30px;
+  padding-top: 100px;
 }
-
+.middle{
+  margin: auto auto;
+  vertical-align: bottom;
+}
 .quizsection{
   align-self: center;
   
@@ -396,7 +404,7 @@ body{
 
 .item-1 .option-1 label{
   font-size: 18px;
-  color: #fff;
+  color: #000511;
 }
 
 .quiz-item h1{
@@ -412,12 +420,12 @@ body{
 
 .mysection-quiz{
   align-self: center;
-  background-color: #000511;
+  background-color: #fffc;
   width: 80%;
   padding: 15px 20px;
   border-left: 8px solid #2c2fff;
   border-top: 8px solid #6b9658;
-  color: #fff;
+  color: #000511;
   z-index: +2;
   border-radius: 15px;
   margin: auto;
@@ -426,7 +434,7 @@ body{
 }
 .mysection-response{
   align-self: center;
-  background-color: #000511;
+  background-color: #fffc;
   width: 80%;
   padding: 15px 20px;
   border-left: 8px solid #2c2fff;
@@ -440,12 +448,12 @@ body{
 }
 .mysection-response-data{
   align-self: center;
-  background-color: #000511;
+  background-color: #fffc;
   width: 80%;
   padding: 15px 20px;
   border-left: 8px solid #2c2fff;
   border-top: 8px solid #6b9658;
-  color: #fff;
+  color: #000511;
   z-index: +2;
   border-radius: 15px;
   margin: auto;
@@ -457,12 +465,12 @@ body{
 .mysection2-quiz{
   align-self: center;
   position: relative;
-  background-color: #000511;
+  background-color: #fffc;
   width: 80%;
   padding: 15px 20px;
   /* border: 2px solid #6b9658; */
   border-left: 8px solid #2c2fff;
-  color: #ede7f6;
+  color: #000511;
   z-index: +2;
   border-radius: 15px;
   margin: 30px auto;
@@ -480,12 +488,16 @@ body{
 .display_none{
   display:none;
 }
-.quiz-item a{
-  text-align: center;
-  align-self: center;
-  margin: 20px auto;
+.quiz-item .btn{
   width: fit-content;
-
+  background: none;
+  border: 1px solid var(--color)  !important;
+  color: var(--color);
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 10px 10px;
 }
 /* #b3d7ff;
 #fadde0; */
@@ -493,17 +505,58 @@ body{
   width : fit-content;
   padding: 3px 10px;
 }
+
 .btnicon-5{
   width: fit-content !important;
   background: transparent;
   background-color: transparent;
   border: 0px solid var(--color);
 
-  color: #fff !important;
+  color: #000511 !important;
   padding: 0px;
   font-weight: bolder;
   cursor: pointer;
   margin: auto;
   font-size: 20px !important;
   z-index: 1;
+}
+
+.mynav img{
+  width: 50px;
+  height: 50px;
+  display: inline;
+  margin-right: 5px;
+}
+.mynav h4{
+  display: inline;
+  vertical-align: middle;
+}
+.inline{
+  width: 300px;
+  display: inline-block;
+}
+
+.quiz-create-sec img{
+  /* background-color: #fffc; */
+  width: 90%;
+}
+
+
+.quiz-question-title-2 .btn{
+  width: fit-content;
+  background: none;
+  border: 0px solid var(--color)  !important;
+  color: #000511;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 20px 10px;
+}
+.quiz-question-title-2  .btn:hover{
+  color: var(--color);
+}
+
+.item h1{
+  color :#000511
 }

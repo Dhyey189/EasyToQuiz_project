@@ -2,19 +2,12 @@
 <html>
 <head>
 	<title>EasyToQuiz Registration</title>
+	<link rel="shortcut icon" href="../static/Logo2.png" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<style type="text/css">
-	::placeholder{
-		body{
-		background-color: #000511;}
-		color: darkgrey;
-		opacity: 10;
-		font-size: 16px;
-	}
-</style>
-<body style=" background: url(2.jpg) no-repeat !important;">
+
+<body>
 	<form action = "/EasyToQuiz/userregistration" method = "POST" >{% csrf_token %}
 		<div class="box">
 

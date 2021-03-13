@@ -4,6 +4,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
+	<link rel="shortcut icon" href="../static/Logo2.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Quiz</title>
@@ -12,13 +13,14 @@
 function ClearRd(this)
 {
         if (checkedRadio == this)
-          {
+        {
             this.checked = false;
             checkedRadio = null;
-           }
+       	}
        else
-          {
-            checkedRadio = this; }
+        {
+            checkedRadio = this; 
+		}
    }
 	</script>
 </head>
@@ -27,7 +29,11 @@ function ClearRd(this)
     <nav class="navbar navbar-expand-sm navbar-dark mynav"
 			style="background-color:#000511 !important; padding : 12px 10px">
 
-			<a href="" style="text-decoration: none;"><h4>Welcome to EasyToQuiz</h4></a>
+			<a href="/EasyToQuiz/" style="text-decoration: none;">
+				<div class="inline"><img src="../static/Logo2.png" alt="">
+					<h4>Welcome to EasyToQuiz</h4>
+				</div>
+			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

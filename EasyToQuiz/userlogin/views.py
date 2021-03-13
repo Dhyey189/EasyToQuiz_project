@@ -128,7 +128,7 @@ def submit(request):
         questions = Question_data.objects.raw("SELECT * from userlogin_question_data WHERE quizid_id=%s", [quizid])
         userid = int(request.POST.get('u_id',''))
         for question in questions:
-            selected_option=request.POST.get('answer'+str(question.id),'')
+            selected_option=request.POST.get('answer'+str(question.id),'1')
             qid=question.id
             response = response_data( answer_id=selected_option, questionid_id=qid, quizid_id=quizid, userid_id=userid)
             response.save()
@@ -146,17 +146,19 @@ def responses(request):
     return render(request,"responses.html")
 
 def responses_data(request):
-    quizid=int(request.POST.get("quizcode",""))
-    userid=int(request.POST.get("user_id",""))
+    quizid=request.POST.get("quizcode","")
+    userid=request.POST.get("user_id","")
     quiz=quiz_data.objects.raw("SELECT * from userlogin_quiz_data WHERE id=%s and username_id=%s", [quizid,userid])
     if len(quiz)==1:
         responses=response_data.objects.raw("SELECT * from userlogin_response_data WHERE quizid_id=%s",[quizid])
         unique_username_list=[]
         for response in responses:
+            # if response.userid_id!=userid:
             user1=User.objects.raw("SELECT DISTINCT * from auth_user WHERE id=%s",[response.userid_id])
             for x in user1:
-                if x not in unique_username_list:
-                    unique_username_list.append(x)
+                if x.id!=int(userid):
+                    if x not in unique_username_list:
+                        unique_username_list.append(x)
         context = {"responses":responses , "username_list":unique_username_list , "quizid":quizid}
         return render(request, "responses_data.html",context)
     else:
@@ -168,14 +170,34 @@ def view_response(request):
     user1=User.objects.raw("SELECT * from auth_user WHERE username=%s",[username])
     quizid=(request.POST.get("quizid",""))
     quiz=quiz_data.objects.raw("SELECT * from userlogin_quiz_data WHERE id=%s", [quizid])
+    correct_answer_list=[]
+    userid=quiz[0].username_id
+    correct_response=response_data.objects.raw("SELECT * from userlogin_response_data WHERE quizid_id=%s and userid_id=%s",[quizid,userid])
+    for cr in correct_response:
+        correct_option=option_data.objects.raw("SELECT * from userlogin_option_data Where id=%s",[cr.answer_id])
+        correct_answer_list.append(correct_option[0].option)
     responses=response_data.objects.raw("SELECT * from userlogin_response_data WHERE quizid_id=%s and userid_id=%s",[quizid,user1[0].id])
+    
     question_list=[]
     answer_list=[]
+    
     for response in responses:
         ques=Question_data.objects.raw("SELECT * from userlogin_question_data WHERE id=%s",[response.questionid_id])
         question_list.append(ques[0])
         answer=option_data.objects.raw("SELECT * from userlogin_option_data WHERE id=%s",[response.answer_id])    
         answer_list.append(answer[0])
-    response_list=zip(question_list,answer_list)
-    context={"response_list":response_list , "quiz":quiz[0]}
+    is_answerd=True
+    i=0
+    if len(correct_response)!=0:
+        is_answerd=True
+        response_list=zip(question_list,answer_list,correct_answer_list)
+        for question,answer,correct_answer in response_list:
+            if answer.option==correct_answer:
+                i+=1
+        response_list=zip(question_list,answer_list,correct_answer_list)
+    else:
+        is_answerd=False
+        response_list=zip(question_list,answer_list)
+    x=len(question_list)
+    context={"response_list":response_list , "quiz":quiz[0], "total":x , "correct":i,"name":username,"email":user1[0].email, "answered":is_answerd}
     return render(request,"view_response.html",context)

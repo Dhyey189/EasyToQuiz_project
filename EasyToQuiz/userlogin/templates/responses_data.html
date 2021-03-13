@@ -6,18 +6,22 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Easy To Quiz</title>
+		<link rel="shortcut icon" href="../static/Logo2.png" />
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
 			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 		<link rel="stylesheet" href="{% static 'style.css' %}">
 	</head>
 
-	<body style="background-color:white !important;">{% csrf_token %}
-
+	<body>{% csrf_token %}
 		<nav class="navbar navbar-expand-sm navbar-dark mynav"
 			style="background-color:#000511 !important; padding : 12px 10px">
 
-			<a href="" style="text-decoration: none;"><h4>Welcome to EasyToQuiz</h4></a>
+			<a href="/EasyToQuiz/" style="text-decoration: none;">
+				<div class="inline"><img src="../static/Logo2.png" alt="">
+					<h4>Welcome to EasyToQuiz</h4>
+				</div>
+			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -64,11 +68,13 @@
 				</div>
                 <form method="POST" action="view_response">{% csrf_token %}
                 <input type="hidden" value={{quizid}} name="quizid">
+				
                 {% for username in username_list%}
-                    <div class="section quiz-question-title">
+                    <div class="section quiz-question-title-2">
                     <input type="submit" value={{username}} class="btn" name="username">
                     </div>
                 {%endfor%}
+				
                 </form>
 		</section>
     </body>
