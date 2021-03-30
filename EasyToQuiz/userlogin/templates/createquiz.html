@@ -3,10 +3,7 @@
 <html lang="en" dir="ltr">
 
 	<head>
-		{% csrf_token %}
 		<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-{% comment %} <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script> {% endcomment %}
 		<meta charset="utf-8">
 		<title>Create New Quiz</title>
 		<link rel="shortcut icon" href="../static/Logo2.png" />
@@ -57,6 +54,7 @@
 			</div>
 		</nav>
 		<form action="savingquiz" method="POST" name="myForm" onsubmit="return final()">{% csrf_token %}
+		<input type="text" class="display_none" value={{user.email}} name="smail">
 		<input type="text" value={{user.id}} class="display_none" name="u_id">
 		<input type="text" id="xxx" class="display_none" name="x">
 		<input type="text" id="array2" class="display_none" name="array2">
@@ -80,7 +78,7 @@
 			
 		</div>	
 		{% with count=0 %}
-		<input type="image" alt="submit" src="../static/save.png" title="Save" name="save" class="btnicon-4">
+		<input type="submit" alt="submit" value="Save" title="Save" name="save" class="btn-2">
 			<a class="btnicon-2" onclick="AddQuestion()"  ><i class="fas fa-plus" title="Add Question"></i></a>
 			
 		</form>

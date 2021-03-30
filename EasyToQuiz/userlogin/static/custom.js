@@ -5,9 +5,12 @@ var array2 = new Array();
 array[0] = 0;
 array2[0] = 0;
 var max=0;
+var arrayopt = new Array();
+arrayopt[0]=1;
 function AddQuestion()
 {
 	x++;
+	arrayopt[x]=0;
 	total_questions++;
 	array[x] = 0;
 	array2[x] = 1;
@@ -54,6 +57,7 @@ function AddQuestion()
 
 function Delete(y) 
 {
+	arrayopt[y]=1;
 	array2[y] = 0;
 	total_questions--;
 	document.getElementById("array2").setAttribute("value",array2);
@@ -64,6 +68,7 @@ function Delete(y)
 
 function AddOption(y) 
 {
+	arrayopt[y]++;
 	array[y]++;
 	var div = document.createElement("div");
 	div.setAttribute("class", "option");
@@ -78,14 +83,15 @@ function AddOption(y)
 	deleteoption.setAttribute("class", "btnicon-3 deleteoption");
 	deleteoption.setAttribute("name", "deleteoptionbtn");
 	deleteoption.setAttribute("ID", y + "-" + array[y]);
-	deleteoption.setAttribute("onclick", "DeleteOption(getAttribute(\"ID\"))");
+	deleteoption.setAttribute("onclick", "DeleteOption(getAttribute(\"ID\"),"+y+")");
 	div.append(optionID);
 	div.append(deleteoption);
 	document.getElementById("item" + y).appendChild(div);
 }
 
-function DeleteOption(a)
+function DeleteOption(a,y)
 {
+	arrayopt[y]--;
 	var DeleteOpt = document.getElementById("div-" + a);
 	var option = document.getElementById("option-" + a);
 	option.setAttribute("value","");
@@ -94,12 +100,24 @@ function DeleteOption(a)
 
 function final()
 {
+	var temp=0;
 	if(total_questions==0)
 	{
+		temp=1;
 		alert("Quiz should contain atleast 1 Question!!");
 		return false;
+
 	}
-	else
+	for(i=0;i<=x;i++)
+	{
+		if(arrayopt[i]==0)
+		{
+			temp=1;
+			alert("Question-"+i+" should contain atlest one option!!");
+			return false;
+		}
+	}
+	if(!temp)
 	{
 		document.getElementById("xxx").setAttribute("value",x);
 		document.getElementById("array2").setAttribute("value",array2);

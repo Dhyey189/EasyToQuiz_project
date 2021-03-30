@@ -31,7 +31,7 @@ function ClearRd(this)
 
 			<a href="/EasyToQuiz/" style="text-decoration: none;">
 				<div class="inline"><img src="../static/Logo2.png" alt="">
-					<h4>Welcome to EasyToQuiz</h4>
+					<h4>EasyToQuiz</h4>
 				</div>
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -106,7 +106,7 @@ function ClearRd(this)
 					<div class="item-1 optionitem">
 						<div class="option-1">
 							{% if option1.questionid_id == question.id %}
-							<input type="radio" id='"option{{option1.id}}' name="answer{{question.id}}" value={{option1.id}} onclick="ClearRd(this)">
+							<input type="radio" id='"option{{option1.id}}' name="answer{{question.id}}" value={{option1.id}} onclick="ClearRd(this)" required="required"/>
 							<label for={{option1.option}}>{{option1.option}}</label>
 							{%endif%}
 						</div>
