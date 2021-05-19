@@ -1,3 +1,3 @@
 # Project_EasyToQuiz
-SEPP Project online Quiz form
+Project on online Quiz form (similar to google form)
 Project Completed
