@@ -25,3 +25,7 @@ User (quiz-owner) can see all responses with marks for particular students for p
 
 
 More Details can be found in [project report](https://github.com/Dhyey189/EasyToQuiz_project/blob/main/Project_Report.pdf).
+
+## Tech Stack
+
+Used python Django Framework for backend and frontend and MySql for database.
